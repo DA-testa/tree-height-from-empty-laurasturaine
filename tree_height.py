@@ -14,7 +14,7 @@ def compute_height(n, parents):
     for i in range(n):
         depth=0
         index=i
-        while index!=-1
+        while index!=-1:
             depth=depth+1
             index=parents[index]
         max_height=max(max_height,depth)
