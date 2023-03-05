@@ -6,19 +6,20 @@ import numpy
 
 
 def compute_height(n, parents):
-    # Write this function
     max_height = 0
-
-     # Your code here
-     
+    depth={}
     for i in range(n):
-        depth=0
-        index=i
-        while index!=-1:
-            depth=depth+1
-            index=parents[index]
-        max_height=max(max_height,depth)
-   
+        if i not in depth:
+            node=i
+            d=0
+            while node!=-1:
+                if node in depth:
+                    d+=depth[node]
+                    break
+                d+=1
+                node=parents[node]
+            depth[i]=d
+        max_height=max(max_height,depth[i])
     return max_height
 
 
